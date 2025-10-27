@@ -1,0 +1,24 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    container_name: juice-shop
+    # Bind to localhost to avoid exposing the lab to the network by default.
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: unless-stopped
+    environment:
+      # leave blank or set any env vars if needed; Juice Shop uses sensible defaults
+      - NODE_ENV=production
+    volumes:
+      # persistent storage so users / progress / database survive container restarts
+      - ./juice-data:/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# Optional: network can be left default. If adding other services (proxy, scans), use a named network.

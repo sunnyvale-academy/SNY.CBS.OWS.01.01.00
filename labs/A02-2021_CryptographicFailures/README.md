@@ -31,3 +31,5 @@ Decode the chypertext using ROT13 Cesar's algorithm (too weak!?!?)
 ```console
 $ echo "/gur/qrif/ner/fb/shaal/gurl/uvq/na/rnfgre/rtt/jvguva/gur/rnfgre/rtt" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
+
+Or use decoder at https://www.dcode.fr/caesar-cipher

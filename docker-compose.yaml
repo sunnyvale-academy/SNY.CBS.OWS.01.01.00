@@ -3,7 +3,7 @@ version: "3.8"
 
 services:
   juice-shop:
-    image: bkimminich/juice-shop:latest
+    image: bkimminich/juice-shop:v19.0.0
     container_name: juice-shop
     # Bind to localhost to avoid exposing the lab to the network by default.
     ports:
@@ -11,7 +11,7 @@ services:
     restart: unless-stopped
     environment:
       # leave blank or set any env vars if needed; Juice Shop uses sensible defaults
-      - NODE_ENV=production
+      - NODE_ENV=unsafe
     volumes:
       # persistent storage so users / progress / database survive container restarts
       - ./juice-data:/data

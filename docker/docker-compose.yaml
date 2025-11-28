@@ -21,4 +21,15 @@ services:
       timeout: 10s
       retries: 3
 
+  nginx-modsec:
+    image: owasp/modsecurity-crs:nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - juice-shop
+    volumes:
+      - ./my-nginx.conf:/etc/nginx/conf.d/my-nginx.conf
+
 # Optional: network can be left default. If adding other services (proxy, scans), use a named network.

@@ -1,0 +1,1 @@
+http://localhost:3000/rest/user/change-password?new=prova&repeat=prova
